@@ -31,7 +31,9 @@ In your own words, define what the responsibilities of the model layer are in
 Rails.
 
 ```md
-<!-- your answer here -->
+Models consist of Ruby classes that communicate with the database, store,
+and validate data (such as validating username and password information).
+https://betterexplained.com/articles/intermediate-rails-understanding-models-views-and-controllers/
 ```
 
 ## Define Controller Responsiblities
@@ -40,7 +42,10 @@ In your own words, define what the responsibilities of the controller layer are
 in Rails.
 
 ```md
-<!-- your answer here -->
+A controller interprets a request and responds with proper output. It inherits
+from ApplicationController, which inherits from ActionController::Base.They
+handle password authentication, redirection, errors, and filters.
+http://guides.rubyonrails.org/action_controller_overview.html
 ```
 
 ## Define Router Responsiblities
@@ -48,7 +53,9 @@ in Rails.
 In your own words, define what the router does in Rails.
 
 ```md
-<!-- your answer here -->
+Routers sends URLs to the controller, and matches requests to the appropriate
+controller action.
+http://guides.rubyonrails.org/routing.html
 ```
 
 ## The Request-Response Cycle in Rails
@@ -57,5 +64,14 @@ Starting with a client making a GET request to a particular URL, describe how
 the parts of Rails interact to produce and send a response.
 
 ```md
-<!-- your answer here -->
+Client makes a HTTP request with the "verb" GET. The application request is
+recognized as a Ruby request and is forwarded to the app server. The request is
+then sent to Ruby Version Manager, which verifies in Gemfile which version of
+Ruby is being used. It checks the routes using the HTTP request URI and method.
+The request is then sent to the appropriate Controller, and then to the Model
+to retrieve data from the database. The response is then compiled into HTML and,
+if the request has been successful, is accompanied with status code 200. The
+app server forwards the HTTP response to the web server, and then to the user's
+browser, where the View is rendered.
+http://www.slideshare.net/NathalieSteinmetz/requestresponse-cycle-of-ruby-on-rails-app
 ```
